@@ -1,0 +1,216 @@
+{% load static %}
+{% load static i18n app_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as languages %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>MeetMe - Resume Website Template</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.min.css' %}" >
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/fonts/font-awesome.min.css' %}">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/fonts/simple-line-icons.css' %}">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/slicknav.css' %}">
+    <!-- Menu CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/menu_sideslide.css' %}">
+    <!-- Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/slide-style.css' %}">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/nivo-lightbox.css' %}" >
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/animate.css' %}">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/responsive.css' %}">
+
+  </head>
+  <body>
+
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              <span class="icon-menu"></span>
+              <span class="icon-menu"></span>
+              <span class="icon-menu"></span>
+            </button>
+                                                {% for el in main_page  %}
+            <a href="index.html" class="navbar-brand"><img src="{{ el.main_logo.url }}" alt=""></a>
+                                                {% endfor %}
+          </div>
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul >
+           {% for language, title in languages %}
+           <li class="{% if LANGUAGE_CODE == language %}active{% endif %}" style="display: inline-block">
+          {% get_url_tag request=request lang=language as url %}
+             <a href="{{ url }}" class="link-head rot">{{ title }}</a>
+              {% endfor %}
+</ul>
+            <ul class="onepage-nev navbar-nav mr-auto w-100 justify-content-end clearfix">
+                {% for el in menu  %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ el.link }}">
+                  {{ el.menu_name }}
+                </a>
+
+                    {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Start -->
+        <ul class="onepage-nev mobile-menu">
+            {% for el in menu  %}
+          <li>
+            <a href="{{ el.link }}">{{ el.menu_name }}</a>
+          </li>
+                {% endfor %}
+        </ul>
+        <!-- Mobile Menu End -->
+      </nav>
+      <!-- Navbar End -->
+
+      <!-- Hero Area Start -->
+      <div id="hero-area" class="hero-area-bg">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 text-center">
+              <div class="contents">
+                                          {% for el in main_page  %}
+                <h5 class="script-font wow fadeInUp" data-wow-delay="0.2s">{{ el.main_title }}</h5>
+                <h2 class="head-title wow fadeInUp" data-wow-delay="0.4s">{{ el.main_name }}</h2>
+                <p class="script-font wow fadeInUp" data-wow-delay="0.6s">{{ el.main_info }}</p>
+                                          {% endfor %}
+                <ul class="social-icon wow fadeInUp" data-wow-delay="0.8s">
+                                          {% for el in main_page  %}
+                  <li>
+                    <a class="facebook" href="{{ el.facebook_link }}"><i class="{{ el.facebook_icon }}"></i></a>
+                  </li>
+
+                  <li>
+                    <a class="instagram" href="{{ el.instagram_link }}"><i class="{{ el.instagram_icon }}"></i></a>
+                  </li>
+
+                  <li>
+                    <a class="google" href="{{ el.google_link }}"><i class="{{ el.google_icon }}"></i></a>
+                  </li>
+                                            {% endfor %}
+                </ul>
+                <div class="header-button wow fadeInUp" data-wow-delay="1s">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Hero Area End -->
+
+    </header>
+    <!-- Header Area wrapper End -->
+
+{% block about %}
+
+{% include 'main/about.html' %}
+
+{% endblock %}
+
+
+{% block services %}
+
+{% include 'main/services.html' %}
+
+{% endblock %}
+
+
+{% block resume %}
+
+{% include 'main/resume.html' %}
+
+{% endblock %}
+
+
+{% block work %}
+
+{% include 'main/work.html' %}
+
+{% endblock %}
+
+
+{% block contact %}
+
+{% include 'main/contact.html' %}
+
+{% endblock %}
+
+
+   <!-- Footer Section Start -->
+    <footer class="footer-area section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="footer-text text-center wow fadeInDown" data-wow-delay="0.3s">
+              <ul class="social-icon">
+                                             {% for el in main_page  %}
+               <li>
+                    <a class="facebook" href="{{ el.facebook_link }}"><i class="{{ el.facebook_icon }}"></i></a>
+                  </li>
+
+                  <li>
+                    <a class="instagram" href="{{ el.instagram_link }}"><i class="{{ el.instagram_icon }}"></i></a>
+                  </li>
+
+                  <li>
+                    <a class="google" href="{{ el.google_link }}"><i class="{{ el.google_icon }}"></i></a>
+                  </li>
+                                                {% endfor %}
+              </ul>
+              <p> TIME TO CHANGE THE WORLD </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Go to Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="icon-arrow-up"></i>
+    </a>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'main/js/jquery-min.js' %}"></script>
+    <script src="{% static 'main/js/popper.min.js' %}"></script>
+    <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/js/jquery.mixitup.js' %}"></script>
+    <script src="{% static 'main/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'main/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'main/js/wow.js' %}"></script>
+    <script src="{% static 'main/js/jquery.nav.js' %}"></script>
+    <script src="{% static 'main/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'main/js/nivo-lightbox.js' %}"></script>
+    <script src="{% static 'main/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+    <script src="{% static 'main/js/form-validator.min.js' %}"></script>
+    <script src="{% static 'main/js/contact-form-script.min.js' %}"></script>
+    <script src="{% static 'main/js/map.js' %}"></script>
+
+  </body>
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+{% load static i18n app_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as languages %}
+
+
+
+<!-- Services Section Start -->
+    <section id="services" class="services section-padding">
+                                      {% for el in service_page  %}
+      <h2 class="section-title wow flipInX" data-wow-delay="0.4s">{{ el.service_head }}</h2>
+      <div class="container">
+        <div class="row">
+          <!-- Services item -->
+          <div class="col-md-6 col-lg-3 col-xs-12">
+            <div class="services-item wow fadeInDown" data-wow-delay="0.3s">
+              <div class="icon">
+                <i class="icon-grid"></i>
+              </div>
+              <div class="services-content">
+                <h3>{{ el.backend_title }}</h3>
+                <p>{{ el.backend_info }}</p>
+              </div>
+            </div>
+          </div>
+          <!-- Services item -->
+          <div class="col-md-6 col-lg-3 col-xs-12">
+            <div class="services-item wow fadeInDown" data-wow-delay="0.6s">
+              <div class="icon">
+                <i class="icon-layers"></i>
+              </div>
+              <div class="services-content">
+                <h3>{{ el.brand_title }}</h3>
+                <p>{{ el.brand_info }}</p>
+              </div>
+            </div>
+          </div>
+          <!-- Services item -->
+          <div class="col-md-6 col-lg-3 col-xs-12">
+            <div class="services-item wow fadeInDown" data-wow-delay="0.9s">
+              <div class="icon">
+                <i class="icon-briefcase"></i>
+              </div>
+              <div class="services-content">
+                <h3>{{ el.marketing_title }}</h3>
+                <p>{{ el.marketing_info }}</p>
+              </div>
+            </div>
+          </div>
+          <!-- Services item -->
+          <div class="col-md-6 col-lg-3 col-xs-12">
+            <div class="services-item wow fadeInDown" data-wow-delay="1.2s">
+              <div class="icon">
+                <i class="icon-bubbles"></i>
+              </div>
+              <div class="services-content">
+                <h3>{{ el.consult_title }}</h3>
+                <p>{{ el.consult_info }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    <!-- Services Section End -->

@@ -1,0 +1,142 @@
+{% load static %}
+{% load static i18n app_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as languages %}
+
+
+
+<!-- Counter Area Start-->
+    <section class="counter-section section-padding">
+      <div class="container">
+        <div class="row">
+          <!-- Counter Item -->
+                                {% for el in work_page %}
+          <div class="col-md-3 col-sm-6 work-counter-widget text-center">
+            <div class="counter wow fadeInDown" data-wow-delay="0.3s">
+              <div class="icon"><i class="icon-briefcase"></i></div>
+              <div class="counterUp">{{ el.num1 }}</div>
+              <p>{{ el.comment1 }}</p>
+            </div>
+          </div>
+          <!-- Counter Item -->
+          <div class="col-md-3 col-sm-6 work-counter-widget text-center">
+            <div class="counter wow fadeInDown" data-wow-delay="0.6s">
+              <div class="icon"><i class="icon-check"></i></div>
+              <div class="counterUp">{{ el.num2 }}</div>
+              <p>{{ el.comment2 }}</p>
+            </div>
+          </div>
+          <!-- Counter Item -->
+          <div class="col-md-3 col-sm-6 work-counter-widget text-center">
+            <div class="counter wow fadeInDown" data-wow-delay="0.9s">
+              <div class="icon"><i class="icon-diamond"></i></div>
+              <div class="counterUp">{{ el.num3 }}</div>
+              <p>{{ el.comment3 }}</p>
+            </div>
+          </div>
+          <!-- Counter Item -->
+          <div class="col-md-3 col-sm-6 work-counter-widget text-center">
+            <div class="counter wow fadeInDown" data-wow-delay="1.2s">
+              <div class="icon"><i class="icon-heart"></i></div>
+              <div class="counterUp">{{ el.num4 }}</div>
+              <p>{{ el.comment4 }}</p>
+
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Counter Area End-->
+
+    <!-- Contact Section Start -->
+    <section id="contact" class="section-padding">
+      <div class="contact-form">
+        <div class="container">
+          <div class="row contact-form-area wow fadeInUp" data-wow-delay="0.4s">
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <div class="contact-block">
+
+                {% for el in contact_page %}
+                <h2>{{ el.contact_form }}</h2>
+                {% endfor %}
+                <form id="contactForm" method="post">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        {{ form.name }}
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        {{ form.email }}
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                     <div class="col-md-12">
+                      <div class="form-group">
+                        {{ form.subject }}
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        {{ form.message }}
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <div class="submit-button">
+                        {% for el in contact_page %}
+
+                        <button class="btn btn-common" id="submit" type="submit">{{ el.btn_send }}</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <div class="footer-right-area wow fadeIn">
+                <h2>{{ el.contact_address }}</h2>
+
+                {% endfor %}
+                <div class="footer-right-contact">
+                  <div class="single-contact">
+                    <div class="contact-icon">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                    {% for el in about_page %}
+                    <p>{{ el.location_info }}</p>
+                  </div>
+                  <div class="single-contact">
+                    <div class="contact-icon">
+                      <i class="fa fa-envelope"></i>
+                    </div>
+                    <p><a href="https://mail.google.com/mail/u/0/?tab=rm#inbox">{{ el.email_info }}</a></p>
+                  </div>
+                  <div class="single-contact">
+                    <div class="contact-icon">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                    <p><a href="https://web.telegram.org/#/im">{{ el.phone_info }}</a></p>
+
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              {% for el in contact_page %}
+            <object>
+              <iframe src="{{ el.map }}" width="1025" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </object>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section End -->

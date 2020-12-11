@@ -1,0 +1,84 @@
+{% load static %}
+{% load static i18n app_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as languages %}
+
+
+<!-- Resume Section Start -->
+    <div id="resume" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="education wow fadeInRight" data-wow-delay="0.3s">
+              <ul class="timeline">
+                <li>
+                  <i class="icon-graduation"></i>
+                            {% for el in resume_page %}
+                                  {% if el.id == 2 %}
+                  <h2 class="timelin-title">{{ el.resume_head }}</h2>
+                </li>
+                <li>
+                  <div class="content-text">
+                    <h3 class="line-title">{{ el.resume_title }}</h3>
+                    <span>{{ el.resume_year }}</span>
+                    <p class="line-text">{{ el.resume_info }}</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="content-text">
+                    <h3 class="line-title">{{ el.resume_college }}</h3>
+                    <span>{{ el.college_year }}</span>
+                    <p class="line-text">{{ el.college_info }}</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="content-text">
+                    <h3 class="line-title">{{ el.resume_school }}</h3>
+                    <span>{{ el.school_year }}</span>
+                    <p class="line-text">{{ el.school_info }}</p>
+                              {% endif %}
+                                {% endfor %}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="experience wow fadeInRight" data-wow-delay="0.6s">
+              <ul class="timeline">
+                <li>
+                  <i class="icon-briefcase"></i>
+                  {% for el in resume_page %}
+                                  {% if el.id == 3 %}
+                  <h2 class="timelin-title">{{ el.resume_head }}</h2>
+                </li>
+                <li>
+                  <div class="content-text">
+                    <h3 class="line-title">{{ el.resume_title }}</h3>
+                    <span>{{ el.resume_year }}</span>
+                    <p class="line-text">{{ el.resume_info }}</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="content-text">
+                    <h3 class="line-title">{{ el.resume_college }}</h3>
+                    <span>{{ el.college_year }}</span>
+                    <p class="line-text">{{ el.college_info }}</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="content-text">
+                    <h3 class="line-title">{{ el.resume_school }}</h3>
+                    <span>{{ el.school_year }}</span>
+                    <p class="line-text">{{ el.school_info }}</p>
+                                        {% endif %}
+                                {% endfor %}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Resume Section End -->

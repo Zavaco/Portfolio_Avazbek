@@ -1,0 +1,45 @@
+{% load static %}
+{% load static i18n app_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as languages %}
+
+<!-- About Section Start -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="img-thumb wow fadeInLeft" data-wow-delay="0.3s">
+                              {% for el in about_page  %}
+              <img class="img-fluid" src="{{ el.about_image.url }}" alt="">
+                              {% endfor %}
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="profile-wrapper wow fadeInRight" data-wow-delay="0.3s">
+              {% for el in about_page %}
+              <h3>{{ el.about_title }}</h3>
+              <p>{{ el.about_info }}</p>
+              {% endfor %}
+              <div class="about-profile">
+                <ul class="admin-profile">
+                                                        {% for el in about_page %}
+                  <li><span class="pro-title"> {{ el.about_name }} </span> <span class="pro-detail">{{ el.name_info }}</span></li>
+                  <li><span class="pro-title"> {{ el.about_age }} </span> <span class="pro-detail">{{ el.age_info }}</span></li>
+                  <li><span class="pro-title"> {{ el.about_experience }} </span> <span class="pro-detail">{{ el.experience_info }}</span></li>
+                  <li><span class="pro-title"> {{ el.about_country }} </span> <span class="pro-detail">{{ el.country_info }}</span></li>
+                  <li><span class="pro-title"> {{ el.about_location }} </span> <span class="pro-detail">{{ el.location_info }}</span></li>
+                  <li><span class="pro-title"> {{ el.about_email }} </span> <span class="pro-detail">{{ el.email_info }}</span></li>
+                  <li><span class="pro-title"> {{ el.about_phone }} </span> <span class="pro-detail">{{ el.phone_info }}</span></li>
+
+
+                </ul>
+              </div>
+              <a href="{{ el.db_info }}" class="btn btn-common"><i class="icon-paper-clip"></i> {{ el.download_btn }}</a>
+              <a href="{{ el.cb_info }}" class="btn btn-danger"><i class="icon-speech"></i>{{ el.contact_btn }} </a>
+                                   {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section End -->

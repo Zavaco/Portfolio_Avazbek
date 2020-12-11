@@ -1,0 +1,144 @@
+{% load static %}
+{% load static i18n app_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as languages %}
+
+
+
+   <!-- Portfolio Section -->
+    <section id="portfolios" class="section-padding">
+      <!-- Container Starts -->
+      <div class="container">
+                            {% for el in work_page %}
+        <h2 class="section-title wow flipInX" data-wow-delay="0.4s">{{ el.work_title }}</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Portfolio Controller/Buttons -->
+            <div class="controls text-center">
+              <a class="filter active btn btn-common" data-filter="all">
+                {{ el.btn_all }}
+              </a>
+              <a class="filter btn btn-common" data-filter=".design">
+                {{ el.btn_backend }}
+              </a>
+              <a class="filter btn btn-common" data-filter=".development">
+                {{ el.btn_brand }}
+              </a>
+              <a class="filter btn btn-common" data-filter=".print">
+                {{ el.btn_market }}
+              </a>
+            </div>
+            <!-- Portfolio Controller/Buttons Ends-->
+          </div>
+
+          <!-- Portfolio Recent Projects -->
+          <div id="portfolio" class="row wow fadeInDown" data-wow-delay="0.4s">
+            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development print">
+              <div class="portfolio-item">
+                <div class="shot-item">
+                  <img src="{{ el.img1.url }}" alt="" />
+                  <div class="overlay">
+                    <div class="icons">
+                      <a class="lightbox preview" href="{{ el.img1.url }}">
+                        <i class="icon-eye"></i>
+                      </a>
+                      <a class="link" href="https://github.com/">
+                        <i class="icon-link"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix design print">
+              <div class="portfolio-item">
+                <div class="shot-item">
+                  <img src="{{ el.img2.url }}" alt=""/>
+                  <div class="overlay">
+                    <div class="icons">
+                      <a class="lightbox preview" href="{{ el.img2.url }}">
+                        <i class="icon-eye"></i>
+                      </a>
+                      <a class="link" href="https://github.com/">
+                        <i class="icon-link"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
+              <div class="portfolio-item">
+                <div class="shot-item">
+                  <img src="{{ el.img3.url }}" alt=""/>
+                  <div class="overlay">
+                    <div class="icons">
+                      <a class="lightbox preview" href="{{ el.img3.url }}">
+                        <i class="icon-eye"></i>
+                      </a>
+                      <a class="link" href="https://github.com/">
+                        <i class="icon-link"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development design">
+              <div class="portfolio-item">
+                <div class="shot-item">
+                  <img src="{{ el.img4.url }}" alt="" />
+                  <div class="overlay">
+                    <div class="icons">
+                      <a class="lightbox preview" href="{{ el.img4.url }}">
+                        <i class="icon-eye"></i>
+                      </a>
+                      <a class="link" href="https://github.com/">
+                        <i class="icon-link"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
+              <div class="portfolio-item">
+                <div class="shot-item">
+                  <img src="{{ el.img5.url }}" alt="" />
+                  <div class="overlay">
+                    <div class="icons">
+                      <a class="lightbox preview" href="{{ el.img5.url }}">
+                        <i class="icon-eye"></i>
+                      </a>
+                      <a class="link" href="https://github.com/">
+                        <i class="icon-link"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix print design">
+              <div class="portfolio-item">
+                <div class="shot-item">
+                  <img src="{{ el.img6.url }}" alt=""/>
+                  <div class="overlay">
+                    <div class="icons">
+                      <a class="lightbox preview" href="{{ el.img6.url }}">
+                        {% endfor %}
+                        <i class="icon-eye"></i>
+                      </a>
+                      <a class="link" href="https://github.com/">
+                        <i class="icon-link"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Container Ends -->
+    </section>
+    <!-- Portfolio Section Ends -->
